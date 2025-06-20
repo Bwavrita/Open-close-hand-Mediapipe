@@ -28,6 +28,7 @@ class HandDetection():
             min_detection_confidence=min_detection_confidence,
             min_tracking_confidence=min_tracking_confidence
         )
+        self.mp_drawing = mp.solutions.drawing_utils
         self.roi = roi
         self.hand_threshold = hand_threshold
         self.min_fingers = 3
@@ -69,9 +70,11 @@ class HandDetection():
         hand_landmarks = result.multi_hand_landmarks
         if hand_landmarks:
             for hand_landmark in hand_landmarks:
-                bbox = self.get_square_roi_from_landmarks(hand_landmark, frame.shape)
-                x1, y1, x2, y2 = bbox
-                ImageOperations.draw_rectangle(frame,(x1,y1,x2,y2),(255,0,0))
+                self.mp_drawing.draw_landmarks(
+                    frame,
+                    hand_landmark,
+                    self.mp_hands.HAND_CONNECTIONS
+                )
                 for id, coord in enumerate(hand_landmark.landmark):
                     if id in [0,4,8,12,16,20]:
                         h, w, _ = frame.shape
