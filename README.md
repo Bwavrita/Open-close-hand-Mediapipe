@@ -19,7 +19,7 @@ This is a real-time Computer Vision project built in Python that leverages the M
 
 ---
 
-###  демонстрация (Demonstration)
+###  Demonstration
 
 A short GIF demonstrating the program in action. This is highly effective for Computer Vision project READMEs!
 
