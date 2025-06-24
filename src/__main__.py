@@ -18,7 +18,7 @@ def main():
         roi=dados["roi"],
         hand_threshold=dados["hand_threshold"]
     )
-    cap = cv2.VideoCapture("src/videos/home_video_2.mp4")
+    cap = cv2.VideoCapture("src/videos/output.mp4")
     ret, frame = cap.read()
     width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height  = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
